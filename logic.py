@@ -174,44 +174,44 @@ def evaluate_resume(jd_text, resume_text, skill_vocab=None, hard_weight=0.5, sem
 
 
 
-# if __name__ == '__main__':
+if __name__ == '__main__':
    
-#     sample_jd = """
-#     Job Title: Python Developer
-#     Location: Bangalore, India
-#     Description: We are looking for a Python Developer with 3+ years of experience in building web applications.
-#     Responsibilities:
-#     - Develop and maintain scalable web services using Flask or Django.
-#     - Work with PostgreSQL databases.
-#     - Deploy applications on AWS.
-#     - Write unit and integration tests.
-#     Required Skills: Python, Flask, Django, SQL, PostgreSQL, AWS, Git.
-#     """
+    sample_jd = """
+    Job Title: Python Developer
+    Location: Bangalore, India
+    Description: We are looking for a Python Developer with 3+ years of experience in building web applications.
+    Responsibilities:
+    - Develop and maintain scalable web services using Flask or Django.
+    - Work with PostgreSQL databases.
+    - Deploy applications on AWS.
+    - Write unit and integration tests.
+    Required Skills: Python, Flask, Django, SQL, PostgreSQL, AWS, Git.
+    """
 
-#     sample_resume = """
-#     John Doe
-#     Software Engineer
+    sample_resume = """
+    John Doe
+    Software Engineer
 
-#     Experience:
-#     - Built web applications using Python and Flask.
-#     - Managed databases with SQL.
-#     - Familiar with cloud services.
+    Experience:
+    - Built web applications using Python and Flask.
+    - Managed databases with SQL.
+    - Familiar with cloud services.
 
-#     Skills:
-#     - Languages: Python, JavaScript
-#     - Frameworks: Flask
-#     - Databases: SQL
-#     """
+    Skills:
+    - Languages: Python, JavaScript
+    - Frameworks: Flask
+    - Databases: SQL
+    """
 
     
-#     result = evaluate_resume(sample_jd, sample_resume)
+    result = evaluate_resume(sample_jd, sample_resume)
 
-#     # --- Print Results in a Friendly Format ---
-#     print("\n=== Resume Evaluation Result ===")
-#     print(f"Hard Match Score: {result['hard_score']}%")
-#     print(f"Semantic Match Score: {result['semantic_score']}%")
-#     print(f"Final Relevance Score: {result['final_score']}%")
-#     print(f"Verdict: {result['verdict']}")
-#     print(f"Found Skills: {', '.join(result['found_skills'])}")
-#     print(f"Missing Skills: {', '.join(result['missing_skills'])}")
-#     print(f"Feedback:\n{result['feedback']}")
+    # --- Print Results in a Friendly Format ---
+    print("\n=== Resume Evaluation Result ===")
+    print(f"Hard Match Score: {result['hard_score']}%")
+    print(f"Semantic Match Score: {result['semantic_score']}%")
+    print(f"Final Relevance Score: {result['final_score']}%")
+    print(f"Verdict: {result['verdict']}")
+    print(f"Found Skills: {', '.join(result['found_skills'])}")
+    print(f"Missing Skills: {', '.join(result['missing_skills'])}")
+    print(f"Feedback:\n{result['feedback']}")
