@@ -2,17 +2,24 @@ import streamlit as st
 from logic import evaluate_resume
 import fitz  # PyMuPDF
 import docx2txt
+import tempfile
 
 # --- File Readers ---
 def getTextFromPDF(file):
     text = ""
+    # Reset buffer pointer in case it was read before
+    file.seek(0)
     with fitz.open(stream=file.read(), filetype="pdf") as doc:
         for page in doc:
             text += page.get_text()
     return text
 
 def getTextFromDOCX(file):
-    return docx2txt.process(file)
+    # Save the uploaded file to a temporary path for docx2txt
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".docx") as tmp:
+        tmp.write(file.read())
+        tmp_path = tmp.name
+    return docx2txt.process(tmp_path)
 
 # --- Streamlit UI ---
 st.set_page_config(page_title="Resume Relevance Checker", layout="wide")
@@ -57,3 +64,4 @@ if st.button("Evaluate"):
         st.info(result["feedback"])
     else:
         st.warning("⚠️ Please provide both Job Description and Resume file.")
+
